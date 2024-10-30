@@ -41,7 +41,7 @@ if response.status_code == 200:
         print(link)
 
     # Extrai o conteúdo principal (primeiro parágrafo)
-    main_content = soup.find('p').get_text() if soup.find('p') else "Conteúdo principal não encontrado"
+    main_content = soup.find('div', class_='searchHeader__title').get_text() if soup.find('p') else "Conteúdo principal não encontrado"
     print("\nConteúdo Principal(primeiro):", main_content)
 
     # Coleta e exibe as URLs das primeiras 5 imagens encontradas
