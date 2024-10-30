@@ -22,7 +22,7 @@ Certifique-se de ter instalado os pacotes necessários antes de rodar o script. 
 2. **Acesse o Diretório do Repositório**:
    - Navegue até o diretório do repositório clonado:
      ```bash
-     cd <web_scraping_fii>
+     cd web_scraping_fii
      ```
 
 3. **Instale as Dependências**:
