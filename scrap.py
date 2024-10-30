@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 from bs4 import BeautifulSoup
-
+import os
 # @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 # Descrição Geral do Bloco
 # Este código realiza web scraping em duas páginas do site Fundsexplorer,
@@ -188,14 +188,24 @@ if response_fundos.status_code == 200:
     # print("\nDataFrame de Fundos Formatado:")
     # print(df_fundos.head())
 
+
+
+    # Define o caminho da pasta
+    pasta_dados = 'dados'
+
+    # Verifica se a pasta existe, se não, cria a pasta
+    if not os.path.exists(pasta_dados):
+        os.makedirs(pasta_dados)
+
     # Salva o DataFrame de Fundos em um arquivo CSV
-    df_fundos.to_csv('dados/fundos_investimento.csv', index=False, encoding='utf-8', sep=';')
+    df_fundos.to_csv(f'{pasta_dados}/fundos_investimento.csv', index=False, encoding='utf-8', sep=';')
 
     # Salva o DataFrame das Altas de Hoje em um arquivo CSV
-    df_altas_de_hoje.to_csv('dados/altas_de_hoje.csv', index=False, encoding='utf-8')
+    df_altas_de_hoje.to_csv(f'{pasta_dados}/altas_de_hoje.csv', index=False, encoding='utf-8')
 
     # Salva o DataFrame das Baixas de Hoje em um arquivo CSV
-    df_baixas_de_hoje.to_csv('dados/baixas_de_hoje.csv', index=False, encoding='utf-8')
+    df_baixas_de_hoje.to_csv(f'{pasta_dados}/baixas_de_hoje.csv', index=False, encoding='utf-8')
+
 
 
 else:
