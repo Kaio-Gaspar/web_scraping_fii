@@ -201,10 +201,10 @@ if response_fundos.status_code == 200:
     df_fundos.to_csv(f'{pasta_dados}/fundos_investimento.csv', index=False, encoding='utf-8', sep=';')
 
     # Salva o DataFrame das Altas de Hoje em um arquivo CSV
-    df_altas_de_hoje.to_csv(f'{pasta_dados}/altas_de_hoje.csv', index=False, encoding='utf-8')
+    df_altas_de_hoje.to_csv(f'{pasta_dados}/altas_de_hoje.csv', index=False, encoding='utf-8', sep=';')
 
     # Salva o DataFrame das Baixas de Hoje em um arquivo CSV
-    df_baixas_de_hoje.to_csv(f'{pasta_dados}/baixas_de_hoje.csv', index=False, encoding='utf-8')
+    df_baixas_de_hoje.to_csv(f'{pasta_dados}/baixas_de_hoje.csv', index=False, encoding='utf-8', sep=';')
 
 
 
