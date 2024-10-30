@@ -156,6 +156,8 @@ if response_fundos.status_code == 200:
 
     # Limpeza de caracteres e substituições para melhorar a formatação dos dados
     df_fundos = df_fundos.replace({',':'.', '-':'',r'\[':'', r'\]':''}, regex=True)
+    df_baixas_de_hoje = df_baixas_de_hoje.replace({',':'.', '-':'',r'\[':'', r'\]':'','R\$':'','%':''}, regex=True)
+    df_altas_de_hoje = df_altas_de_hoje.replace({',':'.', '-':'',r'\[':'', r'\]':'','R\$':'','%':''}, regex=True)
     df_fundos = df_fundos.drop(index=464, axis=0)
 
     # Função para converter valores financeiros com sufixo
@@ -182,11 +184,21 @@ if response_fundos.status_code == 200:
     df_fundos['Patrimônio Líquido'] = df_fundos['Patrimônio Líquido'].apply(converter_patrimonio)
 
     # Converte colunas numéricas para tipos apropriados
-    pd.to_numeric(df_fundos['Dividendos'])
-    pd.to_numeric(df_fundos['Patrimônio Líquido'])
+    def converter_colunas_numericas(df):
+      for column in df.columns:
+        try:
+          df[column] = pd.to_numeric(df[column])
+        except:
+          print('')
+      return df
+    
+    converter_colunas_numericas(df_fundos)
+    converter_colunas_numericas(df_baixas_de_hoje)
+    converter_colunas_numericas(df_altas_de_hoje)
 
     # print("\nDataFrame de Fundos Formatado:")
     # print(df_fundos.head())
+    print(df_altas_de_hoje)
 
 
 
