@@ -1,3 +1,5 @@
+Link Dashboard: [DashBoard Tableau](https://public.tableau.com/app/profile/kaio.de.medeiros.gaspar/viz/Livro2_17302512095860/Painel1?publish=yes)
+
 # Fundos Explorer Web Scraper
 
 Este script realiza web scraping no site [Fundos Explorer](https://www.fundsexplorer.com.br) para coletar informações sobre fundos de investimento, incluindo variação de preço, dividendos e patrimônio líquido. Os dados são armazenados em DataFrames e salvos em arquivos `.csv` para análise posterior.
@@ -75,3 +77,5 @@ Essas escolhas foram feitas levando em conta a facilidade de implementação, a 
 - **Execução em Lote**: Implementar uma função que armazene os dados diretamente em um banco de dados SQL permitiria manipulação e análise mais eficiente de grandes volumes de dados ao longo do tempo.
 
 Este script fornece uma base sólida para extração e análise de dados de fundos, com potencial de melhorias para um sistema de monitoramento mais robusto.
+
+ps: Os dados faltantes foram deixados como NaN para evitar a interpretação de valores_nulos = 0 e facilitar o formato dos dados. Pensando em escabilidade essa questão é facilmente manipulada.
